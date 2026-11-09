@@ -71,5 +71,7 @@ export default defineConfig([
     },
   },
 ])
+## Deployment
 
+Automatically deployed using Vercel and GitHub.
 ```
