@@ -58,7 +58,6 @@ function getSavedSound(): boolean {
   }
 }
 
-// Load browser notification preference
 function getSavedNotification(): boolean {
   try {
     return localStorage.getItem(NOTIFICATION_KEY) !== "false";
@@ -91,7 +90,6 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
     setMessage("");
   }
 
-  // Handle browser notification toggle
   async function handleNotificationChange(enabled: boolean) {
     setNotificationEnabled(enabled);
     setMessage("");
@@ -107,6 +105,26 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
         console.error("Notification permission error:", error);
       }
     }
+  }
+
+  function getNotificationDescription() {
+    if (!notificationEnabled) {
+      return "Browser notifications are currently disabled.";
+    }
+
+    if (!("Notification" in window)) {
+      return "Your browser does not support notifications.";
+    }
+
+    if (Notification.permission === "denied") {
+      return "Notifications are blocked. Allow them in your browser settings.";
+    }
+
+    if (Notification.permission === "default") {
+      return "Permission is not granted yet. Your browser may ask for permission.";
+    }
+
+    return "You will receive an alert when a timer finishes.";
   }
 
   function saveSettings() {
@@ -128,17 +146,11 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
 
     try {
       localStorage.setItem(TIMER_KEY, JSON.stringify(durations));
-
-      localStorage.setItem(
-        SOUND_KEY,
-        String(soundEnabled)
-      );
-
+      localStorage.setItem(SOUND_KEY, String(soundEnabled));
       localStorage.setItem(
         NOTIFICATION_KEY,
         String(notificationEnabled)
       );
-
       localStorage.setItem("focusflow_theme", theme);
 
       setMessage("Settings saved successfully!");
@@ -163,8 +175,11 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
 
         <div className="settings-inputs">
           <div>
-            <label>Focus Duration (minutes)</label>
+            <label htmlFor="focus-duration">
+              Focus Duration (minutes)
+            </label>
             <input
+              id="focus-duration"
               type="number"
               min="1"
               max="180"
@@ -176,8 +191,11 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
           </div>
 
           <div>
-            <label>Short Break (minutes)</label>
+            <label htmlFor="short-break">
+              Short Break (minutes)
+            </label>
             <input
+              id="short-break"
               type="number"
               min="1"
               max="60"
@@ -189,8 +207,11 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
           </div>
 
           <div>
-            <label>Long Break (minutes)</label>
+            <label htmlFor="long-break">
+              Long Break (minutes)
+            </label>
             <input
+              id="long-break"
               type="number"
               min="1"
               max="60"
@@ -209,7 +230,7 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
         <h2>Sound Notifications</h2>
 
         <div className="settings-option">
-          <div>
+          <div className="settings-option-content">
             <strong>Timer Sound</strong>
             <p>Enable sound notification preferences.</p>
           </div>
@@ -221,6 +242,7 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
               onChange={(event) =>
                 setSoundEnabled(event.target.checked)
               }
+              aria-label="Enable timer sound"
             />
             <span className="toggle-slider"></span>
           </label>
@@ -233,11 +255,9 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
         <h2>Browser Notifications</h2>
 
         <div className="settings-option">
-          <div>
+          <div className="settings-option-content">
             <strong>Notification Alerts</strong>
-            <p>
-              Receive alerts when a timer finishes.
-            </p>
+            <p>Receive alerts when a timer finishes.</p>
           </div>
 
           <label className="toggle-switch">
@@ -247,15 +267,14 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
               onChange={(event) =>
                 handleNotificationChange(event.target.checked)
               }
+              aria-label="Enable browser notifications"
             />
             <span className="toggle-slider"></span>
           </label>
         </div>
 
-        <p className="settings-description">
-          {notificationEnabled
-            ? "Browser notifications are enabled."
-            : "Browser notifications are disabled."}
+        <p className="settings-description" role="status">
+          {getNotificationDescription()}
         </p>
       </div>
 
@@ -266,10 +285,9 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
 
         <div className="theme-options">
           <button
+            type="button"
             className={
-              theme === "dark"
-                ? "theme-btn selected"
-                : "theme-btn"
+              theme === "dark" ? "theme-btn selected" : "theme-btn"
             }
             onClick={() => onThemeChange("dark")}
           >
@@ -277,10 +295,9 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
           </button>
 
           <button
+            type="button"
             className={
-              theme === "light"
-                ? "theme-btn selected"
-                : "theme-btn"
+              theme === "light" ? "theme-btn selected" : "theme-btn"
             }
             onClick={() => onThemeChange("light")}
           >
@@ -292,6 +309,7 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
       {/* Save Settings */}
       <div className="settings-save-area">
         <button
+          type="button"
           className="start-btn save-settings-btn"
           onClick={saveSettings}
         >
@@ -309,4 +327,3 @@ function Settings({ theme, onThemeChange }: SettingsProps) {
 }
 
 export default Settings;
-

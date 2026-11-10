@@ -3754,4 +3754,2085 @@ button:disabled {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+} 
+
+/* Navbar Theme Toggle */
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #393b52;
+  border-radius: 50%;
+  background: #292b40;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg) scale(1.08);
+  background: #393052;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #9b83ff;
+  outline-offset: 3px;
+}
+
+/* Desktop Dashboard Alignment Fix */
+
+@media (min-width: 1200px) {
+  .welcome-section,
+  .timer-section {
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Timer Completed Sessions Spacing Fix */
+
+.timer-card > .timer-message:last-child {
+  margin-top: 20px;
+  margin-bottom: 0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Compact Dashboard Tasks */
+
+.compact-task-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 28px auto 40px;
+  padding: 24px;
+  background: #191a2a;
+  border: 1px solid #303147;
+  border-radius: 15px;
+  color: #ffffff;
+}
+
+.compact-task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #38394d;
+}
+
+.compact-task-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.compact-task-title h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.compact-task-count {
+  color: #a69aff;
+  font-size: 12px;
+}
+
+.compact-task-menu-wrapper {
+  position: relative;
+}
+
+.compact-task-menu-btn {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #38394d;
+  border-radius: 9px;
+  background: #24253a;
+  color: #ffffff;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.compact-task-menu {
+  position: absolute;
+  right: 0;
+  top: 44px;
+  z-index: 10;
+  min-width: 160px;
+  padding: 7px;
+  background: #24253a;
+  border: 1px solid #38394d;
+  border-radius: 9px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.compact-task-menu button {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+}
+
+.compact-task-menu button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.compact-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.compact-task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #202135;
+  border: 1px solid #34354b;
+  border-radius: 9px;
+}
+
+.compact-task-label {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.compact-task-label input {
+  width: 17px;
+  height: 17px;
+  accent-color: #7955f5;
+  cursor: pointer;
+}
+
+.compact-task-label span {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.compact-task-item.is-completed .compact-task-label span {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+.compact-task-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.compact-task-actions button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #41425a;
+  border-radius: 6px;
+  background: transparent;
+  color: #bdb4ff;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.compact-add-task-btn {
+  width: 100%;
+  min-height: 75px;
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2px dashed #55516f;
+  border-radius: 11px;
+  background: transparent;
+  color: #aaa0ed;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.compact-add-task-btn:hover {
+  background: rgba(121, 85, 245, 0.08);
+  border-color: #7955f5;
+}
+
+.compact-add-task-btn span {
+  font-size: 25px;
+}
+
+.compact-task-add-form,
+.compact-task-edit {
+  display: flex;
+  gap: 9px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.compact-task-add-form input,
+.compact-task-edit input {
+  flex: 1;
+  min-width: 150px;
+  padding: 11px;
+  border: 1px solid #41425a;
+  border-radius: 7px;
+  background: #202135;
+  color: white;
+  outline: none;
+}
+
+.compact-task-add-form button,
+.compact-task-edit button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 7px;
+  background: #7955f5;
+  color: white;
+  cursor: pointer;
+}
+
+.compact-task-add-form button:last-child,
+.compact-task-edit button:last-child {
+  background: #35364b;
+}
+
+.compact-task-add-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.theme-light .compact-task-section {
+  background: #ffffff;
+  color: #202033;
+  border-color: #e1e1ec;
+}
+
+.theme-light .compact-task-header {
+  border-color: #e1e1ec;
+}
+
+.theme-light .compact-task-item,
+.theme-light .compact-task-add-form input,
+.theme-light .compact-task-edit input {
+  background: #f5f5fa;
+  color: #202033;
+  border-color: #dedeea;
+}
+
+.theme-light .compact-task-menu,
+.theme-light .compact-task-menu-btn {
+  background: #ffffff;
+  color: #202033;
+  border-color: #dedeea;
+}
+
+.theme-light .compact-task-menu button {
+  color: #202033;
+}
+
+.theme-light .compact-task-actions button {
+  border-color: #dedeea;
+  color: #6546d8;
+}
+
+.theme-light .compact-add-task-btn {
+  border-color: #bdb2ee;
+  color: #6546d8;
+}
+
+@media (max-width: 600px) {
+  .compact-task-section {
+    padding: 16px;
+    margin-top: 20px;
+  }
+
+  .compact-task-title {
+    gap: 8px;
+  }
+
+  .compact-task-title h2 {
+    font-size: 19px;
+  }
+
+  .compact-task-count {
+    font-size: 11px;
+  }
+
+  .compact-task-add-form input,
+  .compact-task-edit input {
+    width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+/* Icon Only Navbar */
+
+.icon-nav-link {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #a6a6bd;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.icon-nav-link:hover,
+.icon-nav-link.active {
+  background: rgba(121, 85, 245, 0.16);
+  color: #9275ff;
+}
+
+.icon-nav-link.active {
+  box-shadow: inset 0 -2px #7955f5;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .icon-nav-link {
+    width: 34px;
+    height: 38px;
+    font-size: 21px;
+  }
+
+  .nav-links {
+    gap: 5px;
+  }
+
+  .brand h2 {
+    font-size: 17px;
+  }
+}
+
+/* Navbar Right Side Icon Alignment */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.icon-nav-link {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #eeeeF5;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.icon-nav-link svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-nav-link:hover,
+.icon-nav-link.active {
+  color: #987cff;
+  background: rgba(121, 85, 245, 0.12);
+}
+
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+  .navbar-right {
+    gap: 6px;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .icon-nav-link {
+    width: 30px;
+    height: 34px;
+  }
+
+  .icon-nav-link svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+/* ==========================================
+   FOCUSFLOW - PREMIUM PURPLE DARK THEME
+   ========================================== */
+
+.app {
+  --bg-main: #08091a;
+  --bg-card: #111329;
+  --bg-card-hover: #191b38;
+  --bg-input: #0c0e22;
+  --border-color: #292b4b;
+  --purple: #813cff;
+  --purple-light: #a77bff;
+  --pink: #c02cff;
+  --text-primary: #f5f3ff;
+  --text-secondary: #aaa9c5;
+
+  min-height: 100vh;
+  color: var(--text-primary);
+  background:
+    radial-gradient(ellipse at 10% 25%, rgba(85, 40, 190, 0.13), transparent 35%),
+    radial-gradient(ellipse at 90% 80%, rgba(105, 35, 210, 0.12), transparent 35%),
+    var(--bg-main);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Global */
+
+.app * {
+  box-sizing: border-box;
+}
+
+.app h1,
+.app h2,
+.app h3,
+.app h4 {
+  color: var(--text-primary);
+}
+
+.app p {
+  color: var(--text-secondary);
+}
+
+.app button {
+  font-family: inherit;
+  transition: all 0.25s ease;
+}
+
+.app button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+/* Background decorative glow */
+
+.app .dashboard-layout {
+  background: transparent;
+}
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.app .navbar {
+  height: 68px;
+  padding: 0 4%;
+  background: rgba(12, 13, 32, 0.82);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(111, 91, 190, 0.25);
+  border-radius: 13px;
+  margin: 8px 10px 0;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 20;
+}
+
+.app .brand h2 {
+  color: #f4f0ff;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.app .brand-icon {
+  background: linear-gradient(135deg, #9747ff, #6425ed);
+  box-shadow: 0 0 18px rgba(129, 60, 255, 0.5);
+  border-radius: 9px;
+  color: white;
+}
+
+.app .navbar-right {
+  gap: 15px;
+}
+
+.app .nav-links {
+  gap: 10px;
+}
+
+.app .icon-nav-link {
+  color: #c3bfd9;
+  border-radius: 9px;
+}
+
+.app .icon-nav-link:hover,
+.app .icon-nav-link.active {
+  color: #b58aff;
+  background: rgba(129, 60, 255, 0.16);
+}
+
+.app .icon-nav-link.active {
+  box-shadow: inset 0 -2px #934cff;
+}
+
+.app .theme-toggle {
+  color: #e7ddff;
+  background: rgba(129, 60, 255, 0.12);
+  border: 1px solid #514078;
+}
+
+.app .theme-toggle:hover {
+  background: rgba(129, 60, 255, 0.3);
+  box-shadow: 0 0 15px rgba(129, 60, 255, 0.3);
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.app .sidebar {
+  background: rgba(13, 14, 34, 0.92);
+  border-right: 1px solid rgba(111, 91, 190, 0.2);
+}
+
+.app .sidebar-heading,
+.app .sidebar-bottom p {
+  color: #8582aa;
+}
+
+.app .sidebar-menu li {
+  color: #b9b6d0;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.app .sidebar-menu li:hover,
+.app .sidebar-menu li.active {
+  background: linear-gradient(
+    90deg,
+    rgba(129, 60, 255, 0.22),
+    rgba(129, 60, 255, 0.06)
+  );
+  color: #b997ff;
+  border-color: rgba(129, 60, 255, 0.2);
+}
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.app .main-content {
+  background: transparent;
+  position: relative;
+}
+
+.app .welcome-section h1 {
+  color: #f5f0ff;
+  font-size: 32px;
+  font-weight: 750;
+}
+
+.app .subtitle,
+.app .section-label {
+  color: #a77bff;
+  letter-spacing: 2px;
+}
+
+.app .welcome-section p:last-child {
+  color: #9997b7;
+}
+
+/* ==========================================
+   TIMER CARD
+========================================== */
+
+.app .timer-section {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app .timer-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 50% 110%, rgba(91, 37, 210, 0.22), transparent 48%),
+    linear-gradient(145deg, #151630, #101126 75%);
+  border: 1px solid rgba(132, 104, 224, 0.25);
+  border-radius: 20px;
+  padding: 32px 25px;
+  box-shadow:
+    0 12px 45px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Decorative purple glow */
+
+.app .timer-card::before {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: rgba(101, 39, 230, 0.15);
+  filter: blur(65px);
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.app .timer-card h2 {
+  font-size: 23px;
+  color: #f5efff;
+  margin-bottom: 22px;
+}
+
+/* Timer mode buttons */
+
+.app .mode-buttons {
+  gap: 8px;
+}
+
+.app .mode-btn {
+  padding: 10px 17px;
+  color: #c5bfdc;
+  background: #242440;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.app .mode-btn:hover {
+  background: #343054;
+  border-color: #6744aa;
+}
+
+.app .mode-btn.selected {
+  color: white;
+  background: linear-gradient(110deg, #8d43ff, #b22cff);
+  box-shadow: 0 0 18px rgba(139, 67, 255, 0.35);
+}
+
+/* ==========================================
+   CIRCULAR TIMER
+========================================== */
+
+.app .timer-circle-wrapper {
+  width: 250px;
+  height: 250px;
+  margin: 25px auto 15px;
+  filter: drop-shadow(0 0 12px rgba(130, 59, 255, 0.18));
+}
+
+.app .timer-circle {
+  overflow: visible;
+}
+
+.app .timer-circle-track {
+  stroke: #292641;
+  stroke-width: 8;
+}
+
+.app .timer-circle-progress {
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.25s linear;
+}
+
+.app .timer-circle-progress.focus {
+  stroke: #9a45ff;
+  filter: drop-shadow(0 0 5px #a14aff);
+}
+
+.app .timer-circle-progress.shortBreak {
+  stroke: #38d9a9;
+}
+
+.app .timer-circle-progress.longBreak {
+  stroke: #ffb454;
+}
+
+.app .timer-circle-content .timer-display {
+  color: #faf7ff;
+  font-size: 43px;
+  font-weight: 750;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.app .timer-circle-label {
+  color: #aaa4c9;
+  letter-spacing: 1px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Timer actions */
+
+.app .timer-actions {
+  gap: 12px;
+}
+
+.app .start-btn {
+  min-width: 125px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(110deg, #8240ff, #c12aff);
+  border: none;
+  font-weight: 650;
+  box-shadow: 0 5px 20px rgba(135, 57, 255, 0.3);
+}
+
+.app .start-btn:hover {
+  box-shadow: 0 5px 28px rgba(165, 57, 255, 0.55);
+  filter: brightness(1.12);
+}
+
+.app .reset-btn {
+  color: #d2c9ed;
+  border: 1px solid #494267;
+  border-radius: 25px;
+  background: #20203b;
+}
+
+.app .reset-btn:hover {
+  background: #343052;
+  border-color: #8052d9;
+}
+
+/* ==========================================
+   CYCLE PROGRESS
+========================================== */
+
+.app .cycle-progress {
+  margin-top: 22px;
+}
+
+.app .cycle-progress-heading {
+  color: #c6bddf;
+}
+
+.app .cycle-progress-heading strong {
+  color: #b28aff;
+}
+
+.app .cycle-bar {
+  background: #292642;
+  height: 8px;
+}
+
+.app .cycle-bar.completed {
+  background: linear-gradient(90deg, #8141ff, #c02cff);
+  box-shadow: 0 0 10px rgba(147, 68, 255, 0.4);
+}
+
+.app .cycle-progress p {
+  color: #9792b2;
+}
+
+/* ==========================================
+   STATISTICS AND ANALYTICS
+========================================== */
+
+.app .stats-card,
+.app .analytics-card,
+.app .recent-sessions,
+.app .history-card,
+.app .settings-card {
+  background: linear-gradient(145deg, #151630, #101126);
+  border: 1px solid #292b4b;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.13);
+  transition: all 0.25s ease;
+}
+
+.app .stats-card:hover,
+.app .analytics-card:hover {
+  border-color: rgba(151, 93, 255, 0.5);
+  transform: translateY(-3px);
+}
+
+.app .stats-icon,
+.app .analytics-icon,
+.app .history-session-icon {
+  background: rgba(129, 60, 255, 0.17);
+  color: #b18aff;
+  border: 1px solid rgba(129, 60, 255, 0.18);
+}
+
+.app .stats-card h3,
+.app .analytics-card h3 {
+  color: #f6f1ff;
+}
+
+.app .stats-card p,
+.app .analytics-card p {
+  color: #aaa6c5;
+}
+
+.app .stats-card span,
+.app .analytics-card span {
+  color: #8985a7;
+}
+
+.app .analytics-period {
+  color: #b18aff;
+}
+
+.app .session-row,
+.app .history-row {
+  border-color: #292b4b;
+}
+
+.app .session-row strong,
+.app .history-session-info strong {
+  color: #eeeaff;
+}
+
+.app .session-row > span,
+.app .history-session-details strong {
+  color: #b18aff;
+}
+
+/* ==========================================
+   TASK MANAGEMENT
+========================================== */
+
+.app .tasks-section,
+.app .compact-task-section {
+  background: linear-gradient(145deg, #151630, #101126);
+  border: 1px solid rgba(129, 105, 208, 0.25);
+  border-radius: 17px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.app .tasks-header h2,
+.app .compact-task-title h2 {
+  color: #f5f0ff;
+}
+
+.app .tasks-header > span,
+.app .compact-task-count {
+  color: #b18aff;
+}
+
+.app .task-item,
+.app .compact-task-item {
+  background: #1b1c36;
+  border: 1px solid #303151;
+  border-radius: 11px;
+  transition: all 0.2s ease;
+}
+
+.app .task-item:hover,
+.app .compact-task-item:hover {
+  border-color: #7650c7;
+  background: #222342;
+}
+
+.app .task-label,
+.app .compact-task-label {
+  color: #e3def5;
+}
+
+.app .task-label input,
+.app .compact-task-label input {
+  accent-color: #9850ff;
+}
+
+.app .completed {
+  color: #77748f;
+}
+
+.app .task-input input,
+.app .task-search input,
+.app .task-sorting select,
+.app .task-category-input select,
+.app .task-description-input,
+.app .task-edit-box input,
+.app .task-edit-box select,
+.app .task-deadline-input input,
+.app .settings-inputs input {
+  background: #0d0f24;
+  color: #eeeaff;
+  border: 1px solid #363655;
+  border-radius: 9px;
+}
+
+.app input::placeholder,
+.app textarea::placeholder {
+  color: #797691;
+}
+
+.app .task-input input:focus,
+.app .task-search input:focus,
+.app .task-description-input:focus {
+  border-color: #9a54ff;
+  box-shadow: 0 0 0 3px rgba(129, 60, 255, 0.12);
+  outline: none;
+}
+
+.app .task-input button,
+.app .task-search button,
+.app .compact-task-add-form button,
+.app .compact-task-edit button {
+  background: linear-gradient(110deg, #8240ff, #b72cff);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-weight: 600;
+}
+
+.app .task-filters .filter-btn,
+.app .category-filter-btn {
+  background: #1c1d37;
+  border: 1px solid #393956;
+  color: #c5bfdc;
+  border-radius: 9px;
+}
+
+.app .filter-btn.active,
+.app .category-filter-btn.active {
+  background: linear-gradient(110deg, #8240ff, #b72cff);
+  border-color: #9554ff;
+  color: white;
+  box-shadow: 0 0 12px rgba(129, 60, 255, 0.2);
+}
+
+.app .task-stat-card {
+  background: #171831;
+  border: 1px solid #303151;
+  border-radius: 13px;
+}
+
+.app .task-stat-card p,
+.app .task-stat-card span {
+  color: #a5a0bf;
+}
+
+.app .task-stat-card h3 {
+  color: #f5f0ff;
+}
+
+.app .task-progress {
+  background: #171831;
+  border: 1px solid #303151;
+  border-radius: 12px;
+}
+
+.app .task-progress-header {
+  color: #eeeaff;
+}
+
+.app .task-progress-track {
+  background: #30304d;
+}
+
+.app .task-progress-fill {
+  background: linear-gradient(90deg, #8141ff, #c02cff);
+}
+
+/* Compact dashboard tasks */
+
+.app .compact-task-header {
+  border-color: #343454;
+}
+
+.app .compact-task-menu-btn {
+  background: #242440;
+  color: white;
+  border-color: #393956;
+}
+
+.app .compact-task-menu {
+  background: #191a34;
+  border-color: #393956;
+}
+
+.app .compact-task-menu button {
+  color: #e5ddff;
+}
+
+.app .compact-task-actions button {
+  color: #bd9aff;
+  border-color: #49416a;
+  background: #242440;
+}
+
+.app .compact-task-actions button:hover {
+  background: #39305a;
+}
+
+.app .compact-add-task-btn {
+  color: #b58aff;
+  border: 1.5px dashed #634b98;
+  border-radius: 11px;
+  background: rgba(129, 60, 255, 0.035);
+}
+
+.app .compact-add-task-btn:hover {
+  border-color: #a16aff;
+  background: rgba(129, 60, 255, 0.1);
+  box-shadow: 0 0 15px rgba(129, 60, 255, 0.1);
+}
+
+.app .compact-task-add-form input,
+.app .compact-task-edit input {
+  background: #0d0f24;
+  border-color: #393956;
+  color: white;
+}
+
+/* ==========================================
+   CALENDAR
+========================================== */
+
+.app .task-calendar {
+  background: #151630;
+  border: 1px solid #303151;
+  border-radius: 15px;
+}
+
+.app .calendar-header h2,
+.app .calendar-navigation h3,
+.app .calendar-selected-tasks h3 {
+  color: #f0ebff;
+}
+
+.app .calendar-day,
+.app .calendar-task-item {
+  background: #20213c;
+  border: 1px solid #393956;
+  color: #e8e2ff;
+  border-radius: 9px;
+}
+
+.app .calendar-day:hover {
+  border-color: #9850ff;
+}
+
+.app .calendar-day.today {
+  border: 2px solid #9b5cff;
+}
+
+.app .calendar-day.selected {
+  background: linear-gradient(120deg, #7540e9, #a02cff);
+}
+
+.app .calendar-navigation button {
+  background: #292944;
+  color: white;
+}
+
+.app .calendar-today-btn {
+  background: linear-gradient(110deg, #8240ff, #b72cff);
+}
+
+.app .calendar-selected-tasks {
+  border-color: #393956;
+}
+
+/* ==========================================
+   DEADLINES AND SUBTASKS
+========================================== */
+
+.app .deadline-summary > div {
+  background: #191a34;
+  border-color: #343454;
+}
+
+.app .deadline-summary span {
+  color: #aaa6c5;
+}
+
+.app .deadline-summary strong {
+  color: #f4edff;
+}
+
+.app .task-subtasks {
+  background: #151630;
+  border-color: #3a3859;
+}
+
+.app .subtask-item {
+  border-color: #343454;
+}
+
+.app .subtask-label {
+  color: #ded8f0;
+}
+
+.app .subtask-progress-track {
+  background: #34344f;
+}
+
+.app .subtask-progress-fill {
+  background: linear-gradient(90deg, #8240ff, #c02cff);
+}
+
+.app .add-subtask-btn {
+  color: #b895ff;
+  border-color: #66508f;
+}
+
+.app .subtask-add-row input,
+.app .subtask-edit-row input {
+  background: #0d0f24;
+  color: white;
+  border-color: #393956;
+}
+
+.app .task-description {
+  color: #aaa6c5;
+}
+
+/* ==========================================
+   SETTINGS
+========================================== */
+
+.app .settings-page-heading h1 {
+  color: #f5f0ff;
+}
+
+.app .settings-page-heading > p:last-child {
+  color: #aaa6c5;
+}
+
+.app .settings-option strong {
+  color: #eeeaff;
+}
+
+.app .settings-option p {
+  color: #9e99ba;
+}
+
+.app .theme-btn {
+  background: #1b1c37;
+  color: #d6d0eb;
+  border: 1px solid #393956;
+  border-radius: 10px;
+}
+
+.app .theme-btn:hover,
+.app .theme-btn.selected {
+  background: rgba(129, 60, 255, 0.17);
+  color: #bd9aff;
+  border-color: #9554ff;
+}
+
+.app .toggle-switch input:checked + .toggle-slider {
+  background: linear-gradient(110deg, #8240ff, #c02cff);
+}
+
+.app .save-settings-btn,
+.app .apply-btn {
+  background: linear-gradient(110deg, #8240ff, #c02cff);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 12px 22px;
+  box-shadow: 0 4px 16px rgba(129, 60, 255, 0.25);
+}
+
+.app .settings-message {
+  color: #b895ff;
+}
+
+/* ==========================================
+   HISTORY
+========================================== */
+
+.app .history-heading h2,
+.app .history-card-header h3 {
+  color: #f4efff;
+}
+
+.app .history-subtitle,
+.app .history-session-info p {
+  color: #9995b5;
+}
+
+.app .history-empty h3 {
+  color: #f0eaff;
+}
+
+.app .history-empty p {
+  color: #9995b5;
+}
+
+.app .history-empty-icon {
+  color: #b18aff;
+}
+
+.app .clear-history-btn {
+  background: rgba(255, 70, 100, 0.08);
+  color: #ff899d;
+  border: 1px solid rgba(255, 100, 120, 0.4);
+  border-radius: 9px;
+}
+
+.app .clear-history-btn:hover {
+  background: #c93654;
+  color: white;
+}
+
+/* ==========================================
+   TOAST AND BULK ACTIONS
+========================================== */
+
+.app .task-toast {
+  background: #191a34;
+  color: white;
+  border: 1px solid #49416a;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+}
+
+.app .toast-message {
+  color: #eeeaff;
+}
+
+.app .undo-btn {
+  color: #b18aff;
+}
+
+.app .toast-close {
+  color: #aaa6c5;
+}
+
+.app .bulk-actions {
+  background: #171831;
+  color: #eeeaff;
+  border-color: #393956;
+  border-radius: 12px;
+}
+
+.app .bulk-clear-btn {
+  background: #34344f;
+  color: #e5ddff;
+}
+
+/* ==========================================
+   PRIORITY BADGES
+========================================== */
+
+.app .priority-badge.high {
+  background: rgba(239, 68, 68, 0.17);
+  color: #ff858d;
+}
+
+.app .priority-badge.medium {
+  background: rgba(245, 158, 11, 0.16);
+  color: #ffc46b;
+}
+
+.app .priority-badge.low {
+  background: rgba(34, 197, 94, 0.15);
+  color: #69e6a0;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.app ::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.app ::-webkit-scrollbar-track {
+  background: #0c0d20;
+}
+
+.app ::-webkit-scrollbar-thumb {
+  background: #493477;
+  border-radius: 10px;
+}
+
+.app ::-webkit-scrollbar-thumb:hover {
+  background: #8550d9;
+}
+
+/* ==========================================
+   LIGHT THEME PRESERVATION
+========================================== */
+
+.app.theme-light {
+  --text-primary: #202136;
+  --text-secondary: #66677d;
+
+  background: #f4f5fb;
+  color: #202136;
+}
+
+.app.theme-light .navbar {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #e0e1ed;
+}
+
+.app.theme-light .brand h2,
+.app.theme-light .welcome-section h1,
+.app.theme-light .sidebar-menu li,
+.app.theme-light .icon-nav-link {
+  color: #33344b;
+}
+
+.app.theme-light .timer-card,
+.app.theme-light .stats-card,
+.app.theme-light .analytics-card,
+.app.theme-light .recent-sessions,
+.app.theme-light .history-card,
+.app.theme-light .settings-card,
+.app.theme-light .tasks-section,
+.app.theme-light .compact-task-section,
+.app.theme-light .task-calendar {
+  background: #ffffff;
+  border-color: #e0e1ed;
+  box-shadow: 0 5px 20px rgba(40, 40, 90, 0.06);
+}
+
+.app.theme-light .timer-card h2,
+.app.theme-light .timer-circle-content .timer-display,
+.app.theme-light .stats-card h3,
+.app.theme-light .analytics-card h3,
+.app.theme-light .tasks-header h2,
+.app.theme-light .compact-task-title h2,
+.app.theme-light .history-heading h2,
+.app.theme-light .settings-page-heading h1,
+.app.theme-light .settings-option strong {
+  color: #202136;
+}
+
+.app.theme-light .timer-circle-track {
+  stroke: #e5e1f5;
+}
+
+.app.theme-light .timer-circle-label {
+  color: #77728f;
+}
+
+.app.theme-light .mode-btn {
+  background: #f0eef9;
+  color: #55516b;
+}
+
+.app.theme-light .mode-btn.selected {
+  background: linear-gradient(110deg, #8240ff, #b72cff);
+  color: white;
+}
+
+.app.theme-light .task-item,
+.app.theme-light .compact-task-item,
+.app.theme-light .task-stat-card,
+.app.theme-light .task-progress,
+.app.theme-light .task-subtasks {
+  background: #f7f6fc;
+  border-color: #e0deed;
+  color: #202136;
+}
+
+.app.theme-light .task-label,
+.app.theme-light .compact-task-label,
+.app.theme-light .subtask-label,
+.app.theme-light .task-progress-header {
+  color: #33344b;
+}
+
+.app.theme-light .task-input input,
+.app.theme-light .task-search input,
+.app.theme-light .task-sorting select,
+.app.theme-light .task-category-input select,
+.app.theme-light .task-description-input,
+.app.theme-light .task-edit-box input,
+.app.theme-light .task-edit-box select,
+.app.theme-light .settings-inputs input,
+.app.theme-light .compact-task-add-form input,
+.app.theme-light .compact-task-edit input {
+  background: #f7f7fc;
+  color: #202136;
+  border-color: #d9d9e7;
+}
+
+.app.theme-light .task-input input::placeholder,
+.app.theme-light .task-search input::placeholder {
+  color: #88889d;
+}
+
+.app.theme-light .task-stat-card h3 {
+  color: #202136;
+}
+
+.app.theme-light .calendar-day,
+.app.theme-light .calendar-task-item {
+  background: #f4f3fa;
+  color: #202136;
+  border-color: #deddeb;
+}
+
+.app.theme-light .calendar-header h2,
+.app.theme-light .calendar-navigation h3,
+.app.theme-light .calendar-selected-tasks h3 {
+  color: #202136;
+}
+
+.app.theme-light .compact-task-header {
+  border-color: #e0e1ed;
+}
+
+.app.theme-light .compact-task-menu,
+.app.theme-light .compact-task-menu-btn {
+  background: #f7f6fc;
+  color: #202136;
+  border-color: #deddeb;
+}
+
+.app.theme-light .compact-task-menu button {
+  color: #202136;
+}
+
+.app.theme-light .bulk-actions {
+  background: #ffffff;
+  color: #202136;
+  border-color: #e0e1ed;
+}
+
+.app.theme-light .task-toast {
+  background: #ffffff;
+  color: #202136;
+  border-color: #e0e1ed;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 850px) {
+  .app .main-content {
+    padding: 25px;
+  }
+
+  .app .timer-section {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .app .navbar {
+    margin: 5px;
+    padding: 12px;
+    height: auto;
+    min-height: 62px;
+  }
+
+  .app .navbar-right {
+    gap: 5px;
+  }
+
+  .app .main-content {
+    padding: 20px 14px;
+  }
+
+  .app .timer-card {
+    padding: 23px 12px;
+    border-radius: 16px;
+  }
+
+  .app .timer-circle-wrapper {
+    width: min(230px, 72vw);
+    height: min(230px, 72vw);
+  }
+
+  .app .timer-circle-content .timer-display {
+    font-size: 38px;
+  }
+
+  .app .mode-buttons {
+    flex-wrap: wrap;
+  }
+
+  .app .mode-btn {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .app .stats-grid,
+  .app .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app .task-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .app .settings-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .app .compact-task-section,
+  .app .tasks-section {
+    padding: 15px;
+  }
+
+  .app .compact-add-task-btn {
+    min-height: 58px;
+  }
+
+  .app .history-row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .app .timer-circle-content .timer-display {
+    font-size: 32px;
+  }
+
+  .app .timer-card h2 {
+    font-size: 19px;
+  }
+
+  .app .task-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .app .icon-nav-link {
+    width: 29px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .app *,
+  .app *::before,
+  .app *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================
+   FOCUSFLOW - FINAL LIGHT THEME FIX
+========================================== */
+
+/* Settings page layout */
+
+.app .app-settings {
+  width: 100%;
+  max-width: 950px;
+}
+
+.app .settings-page-heading {
+  margin-bottom: 28px;
+}
+
+.app .settings-card {
+  margin-top: 20px;
+  padding: 26px;
+  border-radius: 16px;
+}
+
+.app .settings-card h2 {
+  margin-bottom: 22px;
+}
+
+.app .settings-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+.app .settings-option-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.app .settings-option-content strong {
+  display: block;
+  line-height: 1.5;
+}
+
+.app .settings-option-content p {
+  margin-top: 6px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.app .settings-description {
+  display: block;
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.app .settings-inputs {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.app .settings-inputs > div {
+  min-width: 0;
+}
+
+.app .settings-inputs input {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.app .theme-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.app .theme-btn {
+  min-width: 145px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.app .settings-save-area {
+  margin: 24px 0 35px;
+}
+
+.app .settings-message {
+  line-height: 1.6;
+}
+
+/* Light theme background and text */
+
+.app.theme-light {
+  background: #f4f5fb !important;
+  color: #202136 !important;
+}
+
+.app.theme-light .navbar,
+.app.theme-light .sidebar {
+  background: #ffffff !important;
+  border-color: #e3e4ef !important;
+}
+
+.app.theme-light .main-content {
+  background: #f4f5fb !important;
+  color: #202136;
+}
+
+.app.theme-light .brand h2,
+.app.theme-light .welcome-section h1,
+.app.theme-light .settings-page-heading h1,
+.app.theme-light .settings-card h2,
+.app.theme-light .tasks-header h2,
+.app.theme-light .analytics-heading h2,
+.app.theme-light .history-heading h2,
+.app.theme-light .history-card-header h3,
+.app.theme-light .calendar-header h2,
+.app.theme-light .calendar-navigation h3,
+.app.theme-light .calendar-selected-tasks h3 {
+  color: #202136 !important;
+}
+
+.app.theme-light .nav-links a,
+.app.theme-light .profile,
+.app.theme-light .sidebar-menu li,
+.app.theme-light .welcome-section p:last-child,
+.app.theme-light .settings-page-heading > p:last-child {
+  color: #62637a !important;
+}
+
+.app.theme-light .sidebar-menu li:hover,
+.app.theme-light .sidebar-menu li.active {
+  background: #eeeaff !important;
+  color: #6846db !important;
+}
+
+.app.theme-light .timer-card,
+.app.theme-light .settings-card,
+.app.theme-light .tasks-section,
+.app.theme-light .analytics-card,
+.app.theme-light .stats-card,
+.app.theme-light .history-card,
+.app.theme-light .recent-sessions,
+.app.theme-light .task-calendar,
+.app.theme-light .compact-task-section {
+  background: #ffffff !important;
+  border-color: #e1e2ed !important;
+  color: #202136 !important;
+  box-shadow: 0 5px 22px rgba(40, 40, 90, 0.06);
+}
+
+/* Light theme settings */
+
+.app.theme-light .settings-option strong {
+  color: #202136 !important;
+}
+
+.app.theme-light .settings-option p,
+.app.theme-light .settings-inputs label {
+  color: #62637a !important;
+}
+
+.app.theme-light .settings-description {
+  background: #f0eefb;
+  color: #55516f;
+  border: 1px solid #e2ddf7;
+}
+
+.app.theme-light .settings-inputs input {
+  background: #f7f7fc !important;
+  color: #202136 !important;
+  border: 1px solid #d9d9e7 !important;
+  color-scheme: light;
+}
+
+.app.theme-light .theme-btn {
+  background: #f7f7fc !important;
+  color: #33344b !important;
+  border-color: #d9d9e7 !important;
+}
+
+.app.theme-light .theme-btn:hover,
+.app.theme-light .theme-btn.selected {
+  background: #eeeaff !important;
+  color: #6846db !important;
+  border-color: #7657ed !important;
+}
+
+.app.theme-light .settings-message {
+  color: #6846db !important;
+}
+
+/* Light theme timer */
+
+.app.theme-light .timer-card h2,
+.app.theme-light .timer-circle-content .timer-display {
+  color: #202136 !important;
+}
+
+.app.theme-light .timer-circle-label {
+  color: #77728f !important;
+}
+
+.app.theme-light .timer-circle-track {
+  stroke: #e5e1f5 !important;
+}
+
+.app.theme-light .mode-btn {
+  background: #f0eef9 !important;
+  color: #55516b !important;
+}
+
+.app.theme-light .mode-btn.selected {
+  background: linear-gradient(110deg, #8240ff, #b72cff) !important;
+  color: #ffffff !important;
+}
+
+/* Light theme task management */
+
+.app.theme-light .task-item,
+.app.theme-light .compact-task-item,
+.app.theme-light .task-stat-card,
+.app.theme-light .task-progress,
+.app.theme-light .task-subtasks,
+.app.theme-light .deadline-summary > div {
+  background: #f7f6fc !important;
+  border-color: #e1e0ed !important;
+  color: #202136 !important;
+}
+
+.app.theme-light .task-label,
+.app.theme-light .compact-task-label,
+.app.theme-light .subtask-label,
+.app.theme-light .task-progress-header,
+.app.theme-light .deadline-summary strong {
+  color: #33344b !important;
+}
+
+.app.theme-light .task-stat-card p,
+.app.theme-light .task-stat-card span,
+.app.theme-light .task-description,
+.app.theme-light .task-deadline-info,
+.app.theme-light .deadline-summary span {
+  color: #686980 !important;
+}
+
+.app.theme-light .task-input input,
+.app.theme-light .task-search input,
+.app.theme-light .task-sorting select,
+.app.theme-light .task-category-input select,
+.app.theme-light .task-description-input,
+.app.theme-light .task-edit-box input,
+.app.theme-light .task-edit-box select,
+.app.theme-light .task-deadline-input input,
+.app.theme-light .subtask-add-row input,
+.app.theme-light .subtask-edit-row input,
+.app.theme-light .compact-task-add-form input,
+.app.theme-light .compact-task-edit input {
+  background: #f7f7fc !important;
+  color: #202136 !important;
+  border-color: #d9d9e7 !important;
+  color-scheme: light;
+}
+
+.app.theme-light .task-search input::placeholder,
+.app.theme-light .task-input input::placeholder {
+  color: #88889d !important;
+}
+
+.app.theme-light .task-progress-track,
+.app.theme-light .subtask-progress-track {
+  background: #e5e4ef !important;
+}
+
+.app.theme-light .filter-btn,
+.app.theme-light .category-filter-btn {
+  background: #ffffff !important;
+  color: #44445c !important;
+  border-color: #d9d9e7 !important;
+}
+
+.app.theme-light .filter-btn.active,
+.app.theme-light .category-filter-btn.active {
+  background: #6846db !important;
+  color: #ffffff !important;
+  border-color: #6846db !important;
+}
+
+/* Light theme calendar */
+
+.app.theme-light .calendar-day,
+.app.theme-light .calendar-task-item {
+  background: #f7f6fc !important;
+  color: #33344b !important;
+  border-color: #deddeb !important;
+}
+
+.app.theme-light .calendar-day.selected {
+  background: #6846db !important;
+  color: #ffffff !important;
+}
+
+.app.theme-light .calendar-navigation button {
+  background: #eeeaff !important;
+  color: #6846db !important;
+}
+
+.app.theme-light .calendar-selected-tasks {
+  border-color: #e1e0ed !important;
+}
+
+/* Light theme history and analytics */
+
+.app.theme-light .session-row,
+.app.theme-light .history-row {
+  border-color: #e1e2ed !important;
+}
+
+.app.theme-light .session-row strong,
+.app.theme-light .history-session-info strong,
+.app.theme-light .history-empty h3 {
+  color: #202136 !important;
+}
+
+.app.theme-light .session-row p,
+.app.theme-light .history-session-info p,
+.app.theme-light .history-empty p {
+  color: #686980 !important;
+}
+
+.app.theme-light .analytics-card p,
+.app.theme-light .stats-card p {
+  color: #62637a !important;
+}
+
+.app.theme-light .analytics-card span,
+.app.theme-light .stats-card span {
+  color: #77788e !important;
+}
+
+/* Responsive Settings and Light Theme */
+
+@media (max-width: 850px) {
+  .app .settings-inputs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .app .settings-card {
+    padding: 19px 16px;
+  }
+
+  .app .settings-option {
+    align-items: center;
+    gap: 12px;
+  }
+
+  .app .settings-option-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .app .settings-option-content p {
+    font-size: 12px;
+  }
+
+  .app .settings-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .app .theme-options {
+    flex-direction: column;
+  }
+
+  .app .theme-btn,
+  .app .save-settings-btn {
+    width: 100%;
+  }
+
+  .app .settings-description {
+    font-size: 12px;
+  }
+}
+
+/* FIX: Theme Toggle Visibility in Light Mode */
+
+.theme-light .navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.theme-light .theme-toggle {
+  display: grid !important;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border: 1px solid #d5d5e5 !important;
+  border-radius: 50%;
+  background: #eeeaff !important;
+  color: #6846db !important;
+  font-size: 20px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.theme-light .theme-toggle:hover {
+  background: #ded6ff !important;
+  border-color: #7657ed !important;
+  transform: scale(1.05);
+}
+
+/* Keep theme toggle visible in dark mode too */
+
+.app:not(.theme-light) .theme-toggle {
+  display: grid;
+  place-items: center;
+  background: #292b40;
+  color: #ffffff;
+  border: 1px solid #393b52;
+}
+
+/* =====================================
+   TIMER - SOFT BLUE THEME (LIGHT MODE)
+===================================== */
+
+/* Timer circular ring */
+.app.theme-light .timer-circle-wrapper {
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.15));
+}
+
+.app.theme-light .timer-circle-track {
+  stroke: #e2eaf5 !important;
+}
+
+.app.theme-light .timer-circle-progress.focus {
+  stroke: #7cb7e8 !important;
+  filter: drop-shadow(0 0 4px rgba(96, 165, 250, 0.25)) !important;
+}
+
+/* Timer text */
+.app.theme-light .timer-circle-content .timer-display {
+  color: #26364d !important;
+}
+
+.app.theme-light .timer-circle-label {
+  color: #718096 !important;
+}
+
+/* Start button */
+.app.theme-light .start-btn {
+  background: #dbeafe !important;
+  color: #285580 !important;
+  border: 1px solid #bfdbfe !important;
+  box-shadow: none !important;
+}
+
+.app.theme-light .start-btn:hover {
+  background: #c7e0fa !important;
+  box-shadow: 0 3px 10px rgba(96, 165, 250, 0.15) !important;
+  filter: none !important;
+}
+
+/* Reset button */
+.app.theme-light .reset-btn {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #dbe3ed !important;
+}
+
+.app.theme-light .reset-btn:hover {
+  background: #e2eaf3 !important;
+  border-color: #cbd5e1 !important;
 }

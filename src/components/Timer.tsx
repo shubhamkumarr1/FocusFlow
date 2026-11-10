@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 
 type TimerMode = "focus" | "shortBreak" | "longBreak";
@@ -25,11 +26,13 @@ type SavedTimerData = {
   showNextSession: boolean;
   nextMode: TimerMode;
 };
+
 const DEFAULT_DURATIONS: Durations = {
   focus: 25,
   shortBreak: 5,
   longBreak: 15,
 };
+
 const STORAGE_KEY = "focusflow_timer_settings";
 const SOUND_KEY = "focusflow_sound_settings";
 const NOTIFICATION_KEY = "focusflow_notification_settings";
@@ -61,6 +64,7 @@ function isValidDurations(value: unknown): value is Durations {
     Number(settings.longBreak) <= 60
   );
 }
+
 function getSavedDurations(): Durations {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -76,6 +80,7 @@ function getSavedDurations(): Durations {
 
   return DEFAULT_DURATIONS;
 }
+
 function getSavedProgress(): ProgressData {
   try {
     const saved = localStorage.getItem(PROGRESS_KEY);
@@ -100,7 +105,7 @@ function getSavedProgress(): ProgressData {
         }
       }
     }
-} catch (error) {
+  } catch (error) {
     console.error("Unable to load Pomodoro progress:", error);
   }
 
@@ -110,7 +115,6 @@ function getSavedProgress(): ProgressData {
   };
 }
 
-// Load saved timer state
 function getSavedTimerState(durations: Durations): SavedTimerData {
   const defaultState: SavedTimerData = {
     mode: "focus",
@@ -161,7 +165,8 @@ function getSavedTimerState(durations: Durations): SavedTimerData {
       isRunning && endsAt !== null
         ? Math.max(0, Math.ceil((endsAt - Date.now()) / 1000))
         : Number(data.timeLeft);
-return {
+
+    return {
       mode: data.mode,
       timeLeft,
       isRunning,
@@ -175,7 +180,6 @@ return {
   }
 }
 
-// Play completion sound
 function playCompletionSound() {
   try {
     if (localStorage.getItem(SOUND_KEY) === "false") return;
@@ -194,7 +198,8 @@ function playCompletionSound() {
 
     oscillator.connect(gainNode);
     gainNode.connect(audioContext.destination);
- oscillator.type = "sine";
+
+    oscillator.type = "sine";
     oscillator.frequency.value = 800;
 
     gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
@@ -214,14 +219,14 @@ function playCompletionSound() {
   }
 }
 
-// Browser notification
 function showBrowserNotification(mode: TimerMode) {
   if (!("Notification" in window)) return;
 
   if (localStorage.getItem(NOTIFICATION_KEY) === "false") return;
 
   if (Notification.permission !== "granted") return;
-   const title =
+
+  const title =
     mode === "focus"
       ? "Focus session completed! 🎉"
       : mode === "shortBreak"
@@ -244,7 +249,6 @@ function Timer({ onSessionComplete }: TimerProps) {
     getSavedDurations
   );
 
-  // Restore timer state after refresh
   const [initialTimerState] = useState(() =>
     getSavedTimerState(getSavedDurations())
   );
@@ -252,6 +256,7 @@ function Timer({ onSessionComplete }: TimerProps) {
   const [mode, setMode] = useState<TimerMode>(
     initialTimerState.mode
   );
+
   const [timeLeft, setTimeLeft] = useState(
     initialTimerState.timeLeft
   );
@@ -280,13 +285,10 @@ function Timer({ onSessionComplete }: TimerProps) {
   );
 
   const completionHandled = useRef(false);
-
-  // Save original browser tab title
   const originalDocumentTitle = useRef(document.title);
-
   const previousDurations = useRef(durations);
 
-// Save Pomodoro progress
+  // Save Pomodoro progress
   useEffect(() => {
     const progress: ProgressData = {
       completedFocusSessions,
@@ -310,7 +312,8 @@ function Timer({ onSessionComplete }: TimerProps) {
       showNextSession,
       nextMode,
     };
-     try {
+
+    try {
       localStorage.setItem(
         TIMER_STATE_KEY,
         JSON.stringify(timerState)
@@ -339,7 +342,8 @@ function Timer({ onSessionComplete }: TimerProps) {
     function updateDurations() {
       setDurations(getSavedDurations());
     }
-     window.addEventListener(
+
+    window.addEventListener(
       "focusflow-settings-updated",
       updateDurations
     );
@@ -373,6 +377,7 @@ function Timer({ onSessionComplete }: TimerProps) {
       completionHandled.current = false;
     }
   }, [durations, isRunning, showNextSession, mode]);
+
   // Countdown using end timestamp
   useEffect(() => {
     if (!isRunning || endsAt === null) return;
@@ -404,6 +409,7 @@ function Timer({ onSessionComplete }: TimerProps) {
     ) {
       return;
     }
+
     completionHandled.current = true;
 
     setIsRunning(false);
@@ -431,7 +437,8 @@ function Timer({ onSessionComplete }: TimerProps) {
     } else {
       upcomingMode = "focus";
     }
-setNextMode(upcomingMode);
+
+    setNextMode(upcomingMode);
     setShowNextSession(true);
   }, [
     timeLeft,
@@ -462,6 +469,7 @@ setNextMode(upcomingMode);
       setIsRunning(true);
     }
   }
+
   // Handle next session choice
   function handleNextChoice(autoStart: boolean) {
     const selectedMode = nextMode;
@@ -499,7 +507,7 @@ setNextMode(upcomingMode);
     setEndsAt(null);
     setShowNextSession(false);
     completionHandled.current = false;
-  setTimeLeft(durations[mode] * 60);
+    setTimeLeft(durations[mode] * 60);
   }
 
   const minutes = Math.floor(timeLeft / 60);
@@ -508,7 +516,7 @@ setNextMode(upcomingMode);
   const formattedTime =
     `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 
-  // Lesson 34: Circular timer progress
+  // Circular timer progress
   const totalDuration = durations[mode] * 60;
   const timerProgress =
     totalDuration > 0 ? (timeLeft / totalDuration) * 100 : 0;
@@ -525,7 +533,7 @@ setNextMode(upcomingMode);
       ? "Short Break"
       : "Long Break";
 
-  // Lesson 33: Update browser tab title
+  // Update browser tab title
   useEffect(() => {
     const modeLabel =
       mode === "focus"
@@ -533,7 +541,8 @@ setNextMode(upcomingMode);
         : mode === "shortBreak"
         ? "Short Break"
         : "Long Break";
-         if (showNextSession) {
+
+    if (showNextSession) {
       document.title = "Session Completed! - FocusFlow";
     } else if (isRunning) {
       document.title = `${formattedTime} - ${modeLabel} | FocusFlow`;
@@ -569,7 +578,8 @@ setNextMode(upcomingMode);
           >
             Focus
           </button>
-           <button
+
+          <button
             className={
               mode === "shortBreak"
                 ? "mode-btn selected"
@@ -592,30 +602,6 @@ setNextMode(upcomingMode);
           </button>
         </div>
 
-        {/* Pomodoro Cycle Progress */}
-        <div className="cycle-progress">
-          <div className="cycle-progress-heading">
-            <span>Pomodoro Progress</span>
-            <strong>{cycleProgress}/4</strong>
-          </div> <div className="cycle-progress-bars">
-            {[1, 2, 3, 4].map((step) => (
-              <div
-                key={step}
-                className={
-                  step <= cycleProgress
-                    ? "cycle-bar completed"
-                    : "cycle-bar"
-                }
-              />
-            ))}
-          </div>
-
-          <p>
-            {cycleProgress === 4
-              ? "All focus sessions completed! Take a long break."
-              : `${4 - cycleProgress} focus session(s) until long break`}
-          </p>
-        </div>
         <div className="timer-circle-wrapper">
           <svg
             className="timer-circle"
@@ -632,6 +618,7 @@ setNextMode(upcomingMode);
               cy="100"
               r={circleRadius}
             />
+
             <circle
               className={`timer-circle-progress ${mode}`}
               cx="100"
@@ -641,8 +628,10 @@ setNextMode(upcomingMode);
               strokeDashoffset={circleOffset}
             />
           </svg>
-           <div className="timer-circle-content">
+
+          <div className="timer-circle-content">
             <div className="timer-display">{formattedTime}</div>
+
             <p className="timer-circle-label">
               {mode === "focus"
                 ? "FOCUS TIME"
@@ -670,9 +659,9 @@ setNextMode(upcomingMode);
 
           <button className="reset-btn" onClick={handleReset}>
             Reset
-          </button>  </div>
+          </button>
+        </div>
 
-        {/* Next Session Choice */}
         {showNextSession && (
           <div className="next-session-box">
             <h3>🎉 Session Completed!</h3>
@@ -710,6 +699,3 @@ setNextMode(upcomingMode);
 }
 
 export default Timer;
-
-
-

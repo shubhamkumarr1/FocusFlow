@@ -2,7 +2,6 @@
 import { useCallback, useEffect, useState } from "react";
 
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
 import Timer from "./components/Timer";
 import History from "./components/History";
 import Tasks from "./components/Tasks";
@@ -14,9 +13,8 @@ import Analytics, {
 
 import "./App.css";
 
-type Page =
+export type Page =
   | "Dashboard"
-  | "Tasks"
   | "Analytics"
   | "History"
   | "Settings";
@@ -117,21 +115,14 @@ function App() {
     switch (activePage) {
       case "Dashboard":
         return (
-          <>
-            <div className="welcome-section">
-              <p className="subtitle">YOUR PRODUCTIVITY SPACE</p>
-              <h1>Good day! 👋</h1>
-              <p>
-                Stay focused, manage your time and achieve your goals.
-              </p>
-            </div>
+          <div className="dashboard-content">
+            <Timer
+              onSessionComplete={handleSessionComplete}
+            />
 
-            <Timer onSessionComplete={handleSessionComplete} />
-          </>
+            <Tasks />
+          </div>
         );
-
-      case "Tasks":
-        return <Tasks />;
 
       case "Analytics":
         return <Analytics sessions={sessions} />;
@@ -158,15 +149,23 @@ function App() {
   }
 
   return (
-    <div className={`app ${theme === "light" ? "theme-light" : ""}`}>
-      <Navbar />
+    <div
+      className={`app ${
+        theme === "light" ? "theme-light" : ""
+      }`}
+    >
+      <Navbar
+        activePage={activePage}
+        onNavigate={setActivePage}
+        theme={theme}
+        onThemeToggle={() =>
+          setTheme((previous) =>
+            previous === "dark" ? "light" : "dark"
+          )
+        }
+      />
 
       <div className="dashboard-layout">
-        <Sidebar
-          activePage={activePage}
-          onNavigate={setActivePage}
-        />
-
         <main className="main-content">
           {renderPage()}
         </main>
