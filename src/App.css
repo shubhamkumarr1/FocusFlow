@@ -6988,3 +6988,71 @@ button:disabled {
     padding: 7px !important;
   }
 }
+
+/* ======================================
+   FOCUSFLOW CLEAN MINIMAL PAGE DESIGN
+   Visual changes only - layout unchanged
+====================================== */
+
+/* NAVBAR */
+
+.app .navbar {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* TIMER CARD */
+
+.app .timer-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove timer decorative glow */
+
+.app .timer-card::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* TASKS SECTION */
+
+.app .compact-task-section {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Keep inner task divider subtle */
+
+.app .compact-task-header {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18) !important;
+}
+
+/* Remove accidental card shadows */
+
+.app .navbar,
+.app .timer-card,
+.app .compact-task-section {
+  filter: none !important;
+}
+
+/* LIGHT MODE */
+
+.app.theme-light .navbar,
+.app.theme-light .timer-card,
+.app.theme-light .compact-task-section {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep mobile layout and responsiveness unchanged */
