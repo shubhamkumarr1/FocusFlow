@@ -6794,3 +6794,197 @@ button:disabled {
     gap: 1px !important;
   }
 }
+
+/* =====================================
+   FINAL MOBILE FIX ONLY
+   DESKTOP WILL REMAIN UNCHANGED
+===================================== */
+
+@media screen and (max-width: 600px) {
+
+  /* NAVBAR: SAME SINGLE ROW AS DESKTOP */
+
+  .app .navbar {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: calc(100% - 16px) !important;
+    box-sizing: border-box !important;
+    height: 62px !important;
+    min-height: 62px !important;
+    padding: 0 8px !important;
+    margin: 5px 8px !important;
+    gap: 4px !important;
+    overflow: visible !important;
+  }
+
+  .app .navbar .brand {
+    display: flex !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    align-items: center !important;
+    gap: 6px !important;
+    order: 0 !important;
+  }
+
+  .app .brand h2 {
+    font-size: 16px !important;
+    white-space: nowrap !important;
+  }
+
+  .app .navbar-right {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 3px !important;
+    order: 1 !important;
+  }
+
+  .app .nav-links {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+    order: 0 !important;
+    gap: 2px !important;
+  }
+
+  .app .icon-nav-link {
+    display: flex !important;
+    visibility: visible !important;
+    width: 27px !important;
+    min-width: 27px !important;
+    max-width: 27px !important;
+    height: 34px !important;
+    flex: 0 0 27px !important;
+    padding: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .app .icon-nav-link svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+
+  .app .theme-toggle {
+    display: grid !important;
+    visibility: visible !important;
+    width: 30px !important;
+    min-width: 30px !important;
+    height: 30px !important;
+    flex: 0 0 30px !important;
+    margin: 0 !important;
+    order: 1 !important;
+  }
+
+
+  /* TASK FORM: INPUT + BUTTONS SAME ROW */
+
+  .app .compact-task-add-form {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 7px !important;
+  }
+
+  .app .compact-task-add-form input {
+    display: block !important;
+    width: auto !important;
+    min-width: 0 !important;
+    flex: 1 1 0% !important;
+    flex-basis: 0% !important;
+    height: 42px !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .app .compact-task-add-form button {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    min-width: 55px !important;
+    width: auto !important;
+    min-height: 40px !important;
+    height: 40px !important;
+    padding: 8px 11px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    font-size: 13px !important;
+  }
+
+  /* Sky blue Add button */
+
+  .app .compact-task-add-form button:first-of-type {
+    background: #0ea5e9 !important;
+    background-image: none !important;
+    color: white !important;
+    border: 1px solid #0ea5e9 !important;
+    box-shadow: none !important;
+  }
+
+  /* Light blue Cancel button */
+
+  .app .compact-task-add-form button:last-of-type {
+    background: #e0f2fe !important;
+    background-image: none !important;
+    color: #0369a1 !important;
+    border: 1px solid #bae6fd !important;
+    box-shadow: none !important;
+  }
+}
+
+
+/* EXTRA SMALL PHONES */
+
+@media screen and (max-width: 380px) {
+
+  .app .brand h2 {
+    font-size: 14px !important;
+  }
+
+  .app .navbar {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    gap: 2px !important;
+  }
+
+  .app .icon-nav-link {
+    width: 24px !important;
+    min-width: 24px !important;
+    max-width: 24px !important;
+    flex-basis: 24px !important;
+  }
+
+  .app .nav-links {
+    gap: 1px !important;
+  }
+
+  .app .navbar-right {
+    gap: 2px !important;
+  }
+
+  .app .compact-task-add-form {
+    gap: 5px !important;
+  }
+
+  .app .compact-task-add-form button {
+    min-width: 48px !important;
+    padding: 7px !important;
+  }
+}
