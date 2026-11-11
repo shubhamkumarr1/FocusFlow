@@ -7056,3 +7056,125 @@ button:disabled {
 }
 
 /* Keep mobile layout and responsiveness unchanged */
+
+/* =================================
+   FINAL UI SPACING IMPROVEMENTS
+================================= */
+
+/* NAVBAR SPACING */
+
+.navbar-right {
+  gap: 24px !important;
+}
+
+.nav-links {
+  gap: 24px !important;
+}
+
+/* START AND RESET BUTTONS */
+
+.start-btn,
+.reset-btn {
+  border-radius: 8px !important;
+}
+
+/* TASK FORM */
+
+.compact-task-add-form {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  align-items: center !important;
+}
+
+.compact-task-add-form .task-input {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* ADD AND CANCEL BUTTONS */
+
+.compact-task-add-form button {
+  min-height: 42px !important;
+  padding: 11px 22px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+
+  .navbar-right {
+    gap: 12px !important;
+  }
+
+  .nav-links {
+    gap: 12px !important;
+  }
+
+  .compact-task-add-form {
+    gap: 10px !important;
+  }
+
+  .compact-task-add-form button {
+    min-height: 44px !important;
+    padding: 12px 24px !important;
+    font-size: 15px !important;
+  }
+
+}
+
+/* ADD TASK FORM - SAME LAYOUT ON ALL DEVICES */
+
+.compact-task-add-form {
+  display: grid !important;
+  grid-template-columns: 1fr auto auto !important;
+  gap: 10px !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.compact-task-add-form .task-input {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.compact-task-add-form button {
+  min-height: 44px !important;
+  padding: 11px 24px !important;
+  border-radius: 8px !important;
+  white-space: nowrap !important;
+}
+
+/* Same arrangement on mobile and desktop */
+@media (max-width: 600px) {
+  .compact-task-add-form {
+    grid-template-columns: 1fr auto auto !important;
+  }
+}
+
+/* NAVBAR BUTTON SPACING */
+
+.navbar-right {
+  gap: 70px !important;
+}
+
+.nav-links {
+  gap: 58px !important;
+}
+
+/* MOBILE NAVBAR SPACING */
+
+@media (max-width: 600px) {
+  .navbar-right {
+    gap: 48px !important;
+  }
+
+  .nav-links {
+    gap: 48px !important;
+  }
+}
