@@ -7157,24 +7157,370 @@ button:disabled {
   }
 }
 
-/* NAVBAR BUTTON SPACING */
+/* ==========================================
+   FINAL NAVBAR SPACING FIX
+   Same horizontal layout on mobile & desktop
+========================================== */
 
-.navbar-right {
-  gap: 70px !important;
+.app .navbar {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 10px 12px 0;
+  padding: 12px 24px;
+  box-sizing: border-box;
 }
 
-.nav-links {
-  gap: 58px !important;
+.app .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-/* MOBILE NAVBAR SPACING */
+.app .navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-shrink: 0;
+}
 
+.app .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app .icon-nav-link,
+.app .theme-toggle {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app .theme-toggle {
+  border-radius: 50%;
+}
+
+/* Mobile: keep everything in one row */
 @media (max-width: 600px) {
-  .navbar-right {
-    gap: 48px !important;
+  .app .navbar {
+    width: calc(100% - 16px);
+    margin: 8px auto 0;
+    padding: 12px 10px;
+    flex-direction: row !important;
+    gap: 6px;
+    min-height: 62px;
   }
 
-  .nav-links {
-    gap: 48px !important;
+  .app .brand {
+    gap: 7px;
+  }
+
+  .app .brand-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .app .brand h2 {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .app .navbar-right {
+    gap: 7px;
+  }
+
+  .app .nav-links {
+    gap: 6px;
+  }
+
+  .app .icon-nav-link,
+  .app .theme-toggle {
+    width: 34px;
+    height: 38px;
+    min-width: 34px;
+  }
+
+  .app .icon-nav-link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .app .navbar {
+    padding-left: 7px;
+    padding-right: 7px;
+    gap: 4px;
+  }
+
+  .app .brand {
+    gap: 5px;
+  }
+
+  .app .brand h2 {
+    font-size: 15px;
+  }
+
+  .app .brand-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .app .navbar-right {
+    gap: 5px;
+  }
+
+  .app .nav-links {
+    gap: 4px;
+  }
+
+  .app .icon-nav-link,
+  .app .theme-toggle {
+    width: 31px;
+    height: 36px;
+    min-width: 31px;
+  }
+}
+
+/* FIX: Perfect Navbar Icon Alignment */
+
+.app .navbar-right {
+  align-items: center !important;
+}
+
+.app .nav-links {
+  align-items: center !important;
+}
+
+.app .icon-nav-link,
+.app .theme-toggle {
+  box-sizing: border-box;
+  padding: 0 !important;
+  margin: 0;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  vertical-align: middle;
+  align-self: center;
+}
+
+.app .icon-nav-link svg,
+.app .theme-toggle svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.app .theme-toggle {
+  position: relative;
+  top: 0 !important;
+  transform: none;
+  font-size: 0 !important;
+}
+
+.app .theme-toggle:hover {
+  transform: scale(1.04);
+}
+
+@media (max-width: 600px) {
+  .app .icon-nav-link svg,
+  .app .theme-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* =====================================
+   FOCUSFLOW NAVBAR - FINAL ICON ALIGNMENT
+===================================== */
+
+.app .navbar {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.app .navbar-right {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  margin-right: 10px !important;
+  flex-shrink: 0;
+}
+
+.app .nav-links {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+}
+
+/* All navigation buttons same dimensions */
+.app .icon-nav-link,
+.app .theme-toggle {
+  box-sizing: border-box !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  align-self: center !important;
+  flex-shrink: 0 !important;
+  line-height: 0 !important;
+  position: relative !important;
+  top: 0 !important;
+  transform: none !important;
+}
+
+/* Navigation SVG icons */
+.app .icon-nav-link svg,
+.app .theme-toggle svg {
+  display: block !important;
+  width: 19px !important;
+  height: 19px !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+/* Theme button perfectly centered */
+.app .theme-toggle {
+  border-radius: 50% !important;
+  font-size: 0 !important;
+  overflow: hidden;
+}
+
+.app .theme-toggle svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Mobile alignment */
+@media (max-width: 600px) {
+  .app .navbar {
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 12px 10px !important;
+    gap: 5px !important;
+  }
+
+  .app .navbar-right {
+    gap: 9px !important;
+    margin-right: 7px !important;
+  }
+
+  .app .nav-links {
+    gap: 7px !important;
+  }
+
+  .app .icon-nav-link,
+  .app .theme-toggle {
+    width: 35px !important;
+    height: 35px !important;
+    min-width: 35px !important;
+    min-height: 35px !important;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .app .navbar {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  .app .navbar-right {
+    gap: 6px !important;
+    margin-right: 5px !important;
+  }
+
+  .app .nav-links {
+    gap: 5px !important;
+  }
+
+  .app .icon-nav-link,
+  .app .theme-toggle {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+  }
+}
+
+/* Task input and buttons in separate rows */
+
+@media (max-width: 600px) {
+  .app .compact-task-add-form {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    width: 100%;
+  }
+
+  .app .compact-task-add-form input {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .app .compact-task-add-form button {
+    width: 100% !important;
+    min-width: 0;
+    margin: 0 !important;
+  }
+}
+
+/* FocusFlow Custom Navbar Logo */
+
+.app .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.app .brand-logo {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .app .brand-logo {
+    width: 40px;
+    height: 40px;
   }
 }
